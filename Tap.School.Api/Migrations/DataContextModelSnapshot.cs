@@ -16,6 +16,23 @@ namespace Tap.School.Api.Migrations
 #pragma warning disable 612, 618
             modelBuilder.HasAnnotation("ProductVersion", "6.0.3");
 
+            modelBuilder.Entity("Tap.School.Api.Entities.Grade", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("INTEGER");
+
+                    b.Property<decimal>("CourseGrade")
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("CourseName")
+                        .HasColumnType("TEXT");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Grades");
+                });
+
             modelBuilder.Entity("Tap.School.Api.Entities.Student", b =>
                 {
                     b.Property<int>("Id")

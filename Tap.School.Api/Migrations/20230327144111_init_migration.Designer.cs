@@ -10,13 +10,30 @@ using Tap.School.Api.Data;
 namespace Tap.School.Api.Migrations
 {
     [DbContext(typeof(DataContext))]
-    [Migration("20230327141537_init_migration")]
+    [Migration("20230327144111_init_migration")]
     partial class init_migration
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder.HasAnnotation("ProductVersion", "6.0.3");
+
+            modelBuilder.Entity("Tap.School.Api.Entities.Grade", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("INTEGER");
+
+                    b.Property<decimal>("CourseGrade")
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("CourseName")
+                        .HasColumnType("TEXT");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Grades");
+                });
 
             modelBuilder.Entity("Tap.School.Api.Entities.Student", b =>
                 {
