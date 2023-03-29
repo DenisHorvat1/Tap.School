@@ -12,5 +12,18 @@ namespace Tap.School.Api.Data
 
         public DbSet<Student> Students { get; set; }
         public DbSet<Grade> Grades { get; set; }
+
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            modelBuilder.Entity<Student>()
+                .Property(s => s.LastName)
+                .IsRequired();
+
+            modelBuilder.Entity<Student>()
+                .Property(s => s.FirstName)
+                .HasMaxLength(150);
+
+            base.OnModelCreating(modelBuilder);
+        }
     }
 }
